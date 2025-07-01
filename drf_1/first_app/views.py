@@ -11,8 +11,8 @@ class StudentView(APIView):
     List all snippets, or create a new snippet.
     """
     def get(self, request, format=None):
-        snippets = models.StudentData.objects.all()
-        serializer =serializers.StudentSerializers(snippets, many=True)
+        student = models.StudentData.objects.all()
+        serializer =serializers.StudentSerializers(student, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
