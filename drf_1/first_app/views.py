@@ -12,14 +12,14 @@ class StudentView(APIView):
         student = models.StudentData.objects.all()
         serializer =serializers.StudentSerializers(student, many=True)
         return Response(serializer.data)
-
+    
     def post(self, request, format=None):
         serializer = serializers.StudentSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)   
+ 
 class StudentDetailView(APIView):
 
     def get_object(self, pk):
