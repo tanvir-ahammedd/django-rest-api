@@ -7,9 +7,6 @@ from . import models
 from . import serializers
 
 class StudentView(APIView):
-    """
-    List all snippets, or create a new snippet.
-    """
     def get(self, request, format=None):
         student = models.StudentData.objects.all()
         serializer =serializers.StudentSerializers(student, many=True)
