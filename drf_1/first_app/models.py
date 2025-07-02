@@ -14,7 +14,7 @@ class StudentData(models.Model):
 #many -> course
 class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
-    #foreign key will be used at which is many
+    #foreign key will be used at where many is placed
     student = models.ForeignKey(StudentData, on_delete=models.CASCADE, related_name='course')
     name = models.CharField(max_length=30)
     credit = models.IntegerField()

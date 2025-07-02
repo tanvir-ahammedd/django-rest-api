@@ -8,7 +8,7 @@ class CourseSerializers(serializers.ModelSerializer):
 
 #one student can take multiple courses -> one to many
 class StudentSerializers(serializers.ModelSerializer):
-    course = CourseSerializers(many = True)
+    course = CourseSerializers(many = True, read_only=True)
     class Meta:
         model = models.StudentData
         fields = '__all__'
