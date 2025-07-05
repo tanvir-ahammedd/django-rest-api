@@ -6,15 +6,21 @@ from rest_framework.response import Response
 from rest_framework import status
 from . import models
 from . import serializers
-from rest_framework import generics
+from rest_framework import generics, viewsets
+
+#shorter
+# class StudentListCreateView(generics.ListCreateAPIView): #get, post
+#     queryset = models.StudentData.objects.all()
+#     serializer_class = serializers.StudentSerializers
 
 
-class StudentListCreateView(generics.ListCreateAPIView): #get, post
-    queryset = models.StudentData.objects.all()
-    serializer_class = serializers.StudentSerializers
+# class StudentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView): #put, update, delete
+#     queryset = models.StudentData.objects.all()
+#     serializer_class = serializers.StudentSerializers
 
-
-class StudentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView): #put, update, delete
+#shortest
+# class StudentViewSet(viewsets.ReadOnlyModelViewSet): #for read only
+class StudentViewSet(viewsets.ModelViewSet):
     queryset = models.StudentData.objects.all()
     serializer_class = serializers.StudentSerializers
 

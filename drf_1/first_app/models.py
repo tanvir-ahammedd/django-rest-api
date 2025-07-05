@@ -17,8 +17,8 @@ class Course(models.Model):
     #foreign key will be used at where many is placed
     student = models.ForeignKey(StudentData, on_delete=models.CASCADE, related_name='course')
     name = models.CharField(max_length=30)
-    credit = models.IntegerField()
+    marks = models.IntegerField()
     def __str__(self):
-        return self.name
+        return f"{self.name}: {self.marks}"
 
     
