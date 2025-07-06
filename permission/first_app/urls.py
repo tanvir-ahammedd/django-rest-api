@@ -7,5 +7,6 @@ router.register(r'products', ProductViewSet)
 router.register(r'reviews', ProductReviewViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path("api_auth/", include("rest_framework.urls"))
 ]
