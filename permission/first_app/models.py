@@ -18,3 +18,5 @@ class ProductReview(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     class Meta:
         unique_together = ('product', 'user') #one user can comment only one
+    def __str__(self):
+        return f"{self.user.username} - {self.product.name} - {self.rating}"
